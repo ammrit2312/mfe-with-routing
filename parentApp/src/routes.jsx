@@ -14,13 +14,13 @@ const MainRouter = () => {
   //   return route;
   // });
 
-  console.log("Checking ##", useRoutes([
-    { path: "/", element: <Home /> },
-    { path: "/another", element: <Another /> },
-    // { path: "/child", element: <Child /> },
-    // { path: "/child/anotherChild", element: <AnotherChild /> },
-    { path: "/child", element: <ChildRouter /> },
-  ]));
+  // console.log("Checking ##", useRoutes([
+  //   { path: "/", element: <Home /> },
+  //   { path: "/another", element: <Another /> },
+  //   // { path: "/child", element: <Child /> },
+  //   // { path: "/child/anotherChild", element: <AnotherChild /> },
+  //   { path: "/child", element: <ChildRouter /> },
+  // ]));
   return useRoutes([
     { path: "/", element: <Home /> },
     { path: "/another", element: <Another /> },

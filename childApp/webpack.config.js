@@ -1,6 +1,6 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-const Dotenv = require('dotenv-webpack');
+const Dotenv = require("dotenv-webpack");
 const deps = require("./package.json").dependencies;
 module.exports = (_, argv) => ({
   output: {
@@ -43,11 +43,17 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "childApp",
       filename: "remoteEntry.js",
-      remotes: {},
+      remotes: {
+        parentApp: "parentApp@http://localhost:3000/remoteEntry.js",
+        childApp: "childApp@http://localhost:3001/remoteEntry.js",
+      },
       exposes: {
         "./ChildRouter": "./src/routes",
         "./Child": "./src/Child",
         "./AnotherChild": "./src/AnotherChild",
+        "./store": "./src/store/index",
+        "./changeNameSelector": "./src/store/selectors/changeName.selector",
+        "./changeNameReducer": "./src/store/ducks/changeName",
       },
       shared: {
         ...deps,
@@ -68,6 +74,6 @@ module.exports = (_, argv) => ({
     new HtmlWebPackPlugin({
       template: "./src/index.html",
     }),
-    new Dotenv()
+    new Dotenv(),
   ],
 });

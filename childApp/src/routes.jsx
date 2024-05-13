@@ -8,5 +8,6 @@ export const childRoutes = [
 ];
 
 export const ChildRouter = () => {
-  return useRoutes(childRoutes);
+  // return <ReduxProvider store={store}>{useRoutes(childRoutes)}</ReduxProvider>
+  return useRoutes(childRoutes)
 };
