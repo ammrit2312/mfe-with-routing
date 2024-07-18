@@ -1,10 +1,25 @@
 import { useRoutes } from "react-router-dom";
 import Child from "./Child";
 import AnotherChild from "./AnotherChild";
+import ContainerComponent from "./ContainerComponent";
 
 export const childRoutes = [
-  { path: "/", element: <Child /> },
-  { path: "/anotherChild", element: <AnotherChild /> },
+  {
+    path: "/",
+    element: <ContainerComponent />,
+    children: [
+      {
+        element: <Child />,
+        index: true,
+      },
+      {
+        path: "/anotherChild",
+        element: <AnotherChild />,
+      },
+    ]
+  },
+  // { path: "/", element: <Child /> },
+  // { path: "/anotherChild", element: <AnotherChild /> },
 ];
 
 export const ChildRouter = () => {
