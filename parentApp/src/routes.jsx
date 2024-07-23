@@ -27,6 +27,10 @@ const MainRouter = () => {
     // { path: "/child", element: <Child /> },
     // { path: "/child/anotherChild", element: <AnotherChild /> },
     { path: "/child/*", element: <ChildRouter /> },
+    {
+      path: '*',
+      element: <div>Page Nahi Mila Parent</div>
+    }
   ]);
 };
 

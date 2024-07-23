@@ -12,6 +12,10 @@ export const childRoutes = [
         path: "/child",
       },
       {
+        element: <div>ID WALA CHILD PAGE</div>,
+        path: "/child/:id",
+      },
+      {
         path: "/anotherChild",
         element: <AnotherChild />,
       },
@@ -28,6 +32,10 @@ export const childRoutes = [
   {
     path: '/',
     element: <Navigate to="/child/child" replace />,
+  },
+  {
+    path: '*',
+    element: <div>Page Nahi Mila</div>
   }
   // { path: "/", element: <Child /> },
   // { path: "/anotherChild", element: <AnotherChild /> },
